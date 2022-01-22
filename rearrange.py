@@ -1,13 +1,12 @@
-import random
+import random, sys
 
-words = input()
+words = sys.argv[1:]
 
-#split string into a list of individual words
-split = words.split(" ")
+def rearrange():
+    #shuffle list
+    random.shuffle(words)
+    #put together into a string
+    shuffled = " ".join(words)
+    print(shuffled)
 
-#shuffle list
-random.shuffle(split)
-
-#put together into a string
-shuffled = " ".join(split)
-print(shuffled)
+rearrange()
