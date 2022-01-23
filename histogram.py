@@ -2,15 +2,17 @@ def histogram(source_text):
     f = open(source_text, 'r')
     text = f.read()
     f.close()
+    text = text.lower()
+    print(text)
     all_words = text.split()
     print(all_words)
     histogram = {}
 
     for word in all_words:
-        if word.lower() in histogram:
-            histogram[word.lower()] += 1
+        if word in histogram:
+            histogram[word] += 1
         else: 
-            histogram[word.lower()] = 1
+            histogram[word] = 1
     
     #return histogram as a dictionary
     return histogram
