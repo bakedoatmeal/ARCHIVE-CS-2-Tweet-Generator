@@ -12,10 +12,10 @@ def histogram(source_text):
         if element in punctuation:
             text = text.replace(element, "")
 
-    print(text)
+    #print(text)
 
     all_words = text.split()
-    print(all_words)
+    #print(all_words)
     histogram = []
     
     #return histogram as a list of lists
@@ -50,11 +50,15 @@ def frequency(word, histogram):
             return minilist[1]
     return 0
 
+def histogram_writer():
+    pass
+
 if __name__ == '__main__':
     hist = histogram('sampletext.txt') #dictionary {'one':1...}
-    print(hist)
     words = unique_words(hist)
+    hist.sort(key = lambda x: x[0])
+    print(hist)
     print(words)
-    count = frequency('FIsh', hist)
+    count = frequency('scandal', hist)
     print(count)
     
