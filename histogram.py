@@ -1,13 +1,14 @@
-def histogram(source_text):
+def histogram_dict(source_text):
     f = open(source_text, 'r')
     text = f.read()
     f.close()
     text = text.lower()
-    print(text)
     all_words = text.split()
-    print(all_words)
     histogram = {}
 
+    # loop through list of all words
+    # if word is already in histogram, increment count
+    # else, add word to histogram
     for word in all_words:
         if word in histogram:
             histogram[word] += 1
@@ -26,7 +27,7 @@ def frequency(word, histogram):
     return histogram[word.lower()]
 
 if __name__ == '__main__':
-    hist = histogram('sampletext.txt') #dictionary {'one':1...}
+    hist = histogram_dict('sampletext.txt') #dictionary {'one':1...}
     print(hist)
     words = unique_words(hist)
     print(words)
