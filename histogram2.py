@@ -1,11 +1,11 @@
-from string import punctuation
-
+# from string import punctuation
 
 def histogram_list(source_text):
     f = open(source_text, 'r')
     text = f.read()
     f.close()
-    punctuation = '''!()-[]{\}\;:'"\,<>./?@#$%^&*_~'''
+    punctuation = '''!()-[]{\}\;:"”“\,<>./?@#$%^&*_~'''
+    # remove posessives? 
     # change all text to lowercase
     text = text.lower()
 
@@ -46,7 +46,7 @@ def frequency(word, histogram):
     return 0
 
 if __name__ == '__main__':
-    hist = histogram_list('sampletext.txt') #dictionary {'one':1...}
+    hist = histogram_list('fish.txt') #dictionary {'one':1...}
     words = unique_words(hist)
     hist.sort(key = lambda x: x[0])
     print(hist)

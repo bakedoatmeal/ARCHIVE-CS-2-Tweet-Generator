@@ -3,8 +3,15 @@ def histogram_dict(source_text):
     text = f.read()
     f.close()
     text = text.lower()
-    all_words = text.split()
+    punctuation = '''!()-[]{\}\;:"\,<>./?@#$%^&*_~'''
     histogram = {}
+
+    # remove punctuation
+    for element in text:
+        if element in punctuation:
+            text = text.replace(element, "")
+
+    all_words = text.split()
 
     # loop through list of all words
     # if word is already in histogram, increment count
@@ -24,7 +31,10 @@ def unique_words(histogram):
 
 def frequency(word, histogram):
     #return the number of times that word appears in a text
-    return histogram[word.lower()]
+    if word.lower() in histogram:
+        return histogram[word.lower()]
+    else:
+        return 0
 
 if __name__ == '__main__':
     hist = histogram_dict('sampletext.txt') #dictionary {'one':1...}
